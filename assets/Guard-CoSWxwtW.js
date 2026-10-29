@@ -1,0 +1,5 @@
+import{r as n,j as e}from"./index-BbKGbTPH.js";class l extends n.Component{constructor(t){super(t),this.state={error:null,copied:!1}}static getDerivedStateFromError(t){return{error:t}}componentDidCatch(t,s){console.error(`[칸 오류] ${this.props.name||""}`,t,s==null?void 0:s.componentStack),this.stack=(s==null?void 0:s.componentStack)||""}render(){const{error:t,copied:s}=this.state;if(!t)return this.props.children;const r=this.props.name||"이 칸",a=`[기록 오류] ${r}
+${String((t==null?void 0:t.stack)||t)}
+${(this.stack||"").split(`
+`).slice(0,8).join(`
+`)}`,c=async()=>{try{await navigator.clipboard.writeText(a),this.setState({copied:!0})}catch{window.prompt("아래 내용을 복사해 주세요",a)}};return e.jsxs("div",{className:`guard ${this.props.compact?"guard--compact":""}`,role:"alert",children:[e.jsxs("b",{children:[r,"을(를) 그리다 문제가 생겼어요"]}),e.jsx("small",{children:"다른 칸과 기록은 괜찮아요."}),e.jsxs("div",{className:"guard__btns",children:[e.jsx("button",{type:"button",className:"pill-btn",onClick:()=>this.setState({error:null,copied:!1}),children:"다시 그리기"}),e.jsx("button",{type:"button",className:"pill-btn",onClick:c,children:s?"복사했어요":"오류 복사"})]})]})}}export{l as default};
